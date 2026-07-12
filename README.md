@@ -35,3 +35,19 @@ This project is still under development and will be updated as I learn more C++ 
 - More employee management features
 
 Stay tuned for future updates!
+
+
+
+# Employee Comparison System
+
+## Version 2.0.0
+
+### Changes:
+- Added employee average salary calculation
+- Added highest salary comparison
+- Added salary difference calculation
+- Added older employee comparison
+- Added menu system
+- Separated Employee and Function into header files
+- Improved code structure
+- Fixed employee input storage using references
