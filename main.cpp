@@ -1,68 +1,58 @@
 #include <iostream>
 #include <string>
 #include "Function.h"
-struct Employee
-{
-    std::string name{};
-    int id{};
-    int age{};
-    double Salary{};
-};
+#include <array>
+#include "Employee.h"
 
-void printEmployee(const Employee &employe)
+
+void printEmployee(const std::array <Employee , 2>& pe)
 {
+    for(  const Employee x : pe){
     std::cout << "======Employee Comparision======" << "\n";
-    std::cout << "Name is :" << employe.name << "\n";
-    std::cout << "id is :" << employe.id << "\n";
-    std::cout << "Age is :" << employe.age << "\n";
-    std::cout << "Salary is :" << employe.Salary << "\n";
+    std::cout << "Name is :" << x.name << "\n";
+    std::cout << "id is :" << x.id << "\n";
+    std::cout << "Age is :" << x.age << "\n";
+    std::cout << "Salary is :" << x.salary << "\n";
+    }
 }
 
 int main()
 {
-
-    Employee User1{};
-    std::cout << "Enter your Name :" << "\n";
-    std::getline(std::cin >> std::ws, User1.name);
+     std::array <Employee , 2> employees{};
+     for( Employee& i : employees){
+         std::cout << "Enter your Name :" << "\n";
+    std::getline(std::cin >> std::ws, i.name);
     std::cout << "Enter your id :" << "\n";
-    std::cin >> User1.id;
+    std::cin >> i.id;
     std::cout << "Enter your Age :" << "\n";
-    std::cin >> User1.age;
+    std::cin >> i.age;
     std::cout << "Enter your Salary :" << "\n";
-    std::cin >> User1.Salary;
-    Employee User2{};
-    std::cout << "Enter your Name :" << "\n";
-    std::getline(std::cin >> std::ws, User2.name);
-    std::cout << "Enter your id :" << "\n";
-    std::cin >> User2.id;
-    std::cout << "Enter your Age :" << "\n";
-    std::cin >> User2.age;
-    std::cout << "Enter your Salary :" << "\n";
-    std::cin >> User2.Salary;
-    MyFunction();
+    std::cin >> i.salary;
+     }
+    showMenu();
     int x;
     std::cin >> x;
     switch (x)
     {
     case 1:
-        printEmployee(User1);
-        printEmployee(User2);
+        printEmployee(employees);
+      
         break;
     case 2:
-        avgSalary(User1.Salary, User2.Salary);
+        avgSalary(employees);
         break;
     case 3:
-        higherSalary(User1.Salary, User2.Salary);
+        higherSalary(employees);
         break;
     case 4:
-        SalariDifference(User1.Salary, User2.Salary);
+        SalariDifference(employees);
         break;
     case 5:
-        olderEmployee(User1.age, User2.age);
+        olderEmployee(employees);
         break;
     case 6:
         std::cout << "Good Luck!" << "\n";
-        std::exit(0);
+        return 0;
         break;
     default:
         std::cout << "Eror!";
